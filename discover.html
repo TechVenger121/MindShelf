@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindShelf | Discover</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    <main class="flex-grow p-6">
+        <div class="container mx-auto">
+            <div class="bg-gray-800 rounded-xl p-6 shadow-lg mb-8">
+                <div class="text-center">
+                    <i data-feather="compass" class="w-16 h-16 text-primary mx-auto mb-4"></i>
+                    <h1 class="text-3xl font-bold text-primary mb-4">Discover New Books</h1>
+                    <p class="text-gray-400">Find your next favorite read</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+<h3 class="font-medium mb-2">What to expect:</h3>
+                        <ul class="text-left text-gray-300 space-y-2">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i>
+                                Personalized recommendations
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i>
+                                Trending books in your categories
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i>
+                                Curated collections by our team
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindShelf | My Books</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  <custom-navbar></custom-navbar>
+
+  <main class="flex-grow p-6">
+    <div class="container mx-auto">
+      <div class="bg-gray-800 rounded-xl p-6 shadow-lg mb-8">
+        <div class="text-center mb-6">
+          <h1 class="text-3xl font-bold text-primary">
+            <i data-feather="book-open" class="inline mr-2"></i>
+            My Bookshelf
+          </h1>
+        </div>
+
+        <!-- 🔍 Search & Filter Section -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+          <!-- Search Bar -->
+          <div class="relative w-full sm:w-1/2">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search by title or author..."
+              class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <i data-feather="search" class="absolute left-3 top-3 text-gray-400"></i>
+          </div>
+
+          <!-- Category Filter -->
+          <select
+            id="category-filter"
+            class="w-full sm:w-1/4 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 📚 Books Section -->
+      <div
+        id="books-container"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      ></div>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script src="components/navbar.js" defer></script>
+  <script src="components/footer.js" defer></script>
+  <script src="script.js" defer></script>
+  <script>feather.replace();</script>
+</body>
+</html>

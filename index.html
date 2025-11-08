@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindShelf | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.5jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8b5cf6',
+                        secondary: '#ec4899',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    <main class="flex-grow flex flex-col items-center justify-center p-4 text-center">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4 text-primary">Welcome to MindShelf</h1>
+            <p class="text-xl text-gray-300 mb-8">Your personal digital library for organizing and discovering great books.</p>
+            <!-- Admin Login Button (Hidden by default) -->
+            <div id="admin-login-container" class="hidden fixed bottom-4 right-4 z-50">
+                <button id="admin-login-btn" class="p-3 bg-primary hover:bg-primary-600 rounded-full shadow-lg transition-colors">
+                    <i data-feather="shield" class="w-5 h-5"></i>
+                </button>
+            </div>
+<!-- Book Library Section -->
+            <div class="w-full max-w-6xl mx-auto mt-8">
+                <h2 class="text-2xl font-bold mb-6">Featured Books</h2>
+                <div id="featured-books" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Books will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+<custom-footer></custom-footer>
+<script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        // Show admin login button after 10 seconds
+        setTimeout(() => {
+            const adminLoginContainer = document.getElementById('admin-login-container');
+            adminLoginContainer.classList.remove('hidden');
+            
+            // Admin Login
+            document.getElementById('admin-login-btn').addEventListener('click', () => {
+                const username = prompt('Admin ID:');
+                const password = prompt('Password:', '');
+                if (username && password === 'admin') {
+                    localStorage.setItem('mindshelf_user', JSON.stringify({
+                        username: username,
+                        role: 'admin'
+                    }));
+window.location.href = 'admin.html';
+                } else if (username !== null && password !== null) {
+                    alert('Invalid admin credentials');
+                }
+            });
+        }, 10000);
+// Load featured books
+        fetchBooks().then(books => {
+            renderBooks(books.slice(0, 8), 'featured-books');
+        });
+    </script>
+<script> src="https://t.me/MindShelf1" </script>
+</body>
+</html>
